@@ -9,7 +9,8 @@ use yii\widgets\ActiveForm;
 <?= $form->field($note, 'text')->textarea(['rows' => '20']) ?>
 
 <div class="form-group">
-    <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
+    <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary', 'name' => 'submit', 'value' => 'save']) ?>
+    <?= Html::submitButton('Удалить', ['class' => 'btn btn-primary', 'name' => 'submit', 'value' => 'delete']) ?>
 </div>
 
 <?php ActiveForm::end(); ?>
