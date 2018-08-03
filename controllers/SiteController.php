@@ -74,8 +74,15 @@ class SiteController extends Controller
         $title = \Yii::$app->request->get('title');
         $note = Notes::findOne($title);
         $note->load(Yii::$app->request->post());
-        $note->save();
-
+        If (\Yii::$app->request->isPost) {
+            switch (\Yii::$app->request->post('submit')) {
+                case 'save':
+                    $note->save();
+                case 'delete':
+                    $note->delete();
+                    return $this->actionList();
+            }
+        }
         return $this->render('note', compact('note'));
     }
 
